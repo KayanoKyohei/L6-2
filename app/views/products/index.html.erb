@@ -4,7 +4,10 @@
     製品:<%= e.name %>
     価格:<%= e.price %>
     <%= link_to "削除", product_path(e), data: {"turbo-method": :delete} %>
+    <%= link_to "カートに入れる", cart_items_new_path(product_id: e.id) %>
 </p>
 <% end %>
 
-<%= link_to "新規追加", new_product_path %>
+<%= link_to "新規追加", new_product_path %><br>
+
+<%= link_to "カートを見る", carts_show_path %>

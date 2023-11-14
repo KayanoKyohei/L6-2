@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get 'carts/show'
+  get 'cart_items/new'
   get 'cart_itmes/new'
   get 'top/main'
   resources :products
   root'top#main'
+  resources :cart_items, only: [:new, :create, :destroy]
+  resources :carts, only: [:show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
