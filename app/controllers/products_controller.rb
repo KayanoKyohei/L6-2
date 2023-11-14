@@ -8,9 +8,13 @@ class ProductsController < ApplicationController
   end
 
   def create
-    products = Product.new(name: params[:product][:name],price: params[:product][:price])
-    products.save
-    redirect_to root_path
+    @products = Product.new(name: params[:product][:name],price: params[:product][:price])
+    
+    if @products.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def destroy
